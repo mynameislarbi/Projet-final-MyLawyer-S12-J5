@@ -1,0 +1,10 @@
+<div class="disponible-list">
+    <% appointments.each do |apt| %>
+        <% if apt.firm_id == params[:firm_id].to_i && apt.start_date > Time.now && apt.is_confirmed != true %>
+            <div class="appointment">
+                <p class="text-dark">Rendez-vous disponible le <%= apt.start_date.day %> <%= Date::MONTHNAMES[apt.start_date.month] %> à <%= apt.start_date.hour %>h</p>
+                <%= link_to "Choisir ce rendez-vous" , firm_appointment_path(params[:firm_id], apt.id), method: :put, class: "btn btn-sm btn-warning", remote: true%>
+            </div>
+        <% end %>
+    <% end %>
+</div>

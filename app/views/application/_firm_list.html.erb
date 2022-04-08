@@ -1,0 +1,21 @@
+<div class="container current-list">
+<div class="firms-index">
+    <% Firm.all.each do |firm| %>
+        <% if firm.departement_id == zip_id %>
+            <br>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><%= firm.name %></h5>
+                    <p class="card-text text-dark">Pour nous contacter : par téléphone <%= firm.phone_number %><br>ou par email :  <%= firm.email %></p>
+                    <% if user_signed_in? %>
+                        <a href="<%= firm_path(firm.id)%>" class="btn btn-sm btn-danger">Voir le cabinet</a>
+                    <% end %>
+                </div>
+                <div class="card-footer text-muted">
+                    <%= firm.address %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+</div>

@@ -1,0 +1,64 @@
+<body style="padding-top : 150px;" >
+  <% unless session[:new_firm].to_i == params[:id].to_i || (user_signed_in? && current_user.is_lawyer && current_user.firm_id == params[:id].to_i )%>
+  <div class='row'  style="text-align : center; width : 100%; height : 200pw;">
+    <div class="col-12">
+      <h1 style="font-size:5rem"><span style="color:#black; font-weight: 900"><%= @firm.name %></span></h1>
+      <p class="text-muted" >Le meilleur des cabinets d'avocats !</p>
+    </div>
+    <div class="col-md-4 col-sm-6 ">
+      <ul>
+      <p class="text-dark">Types de droit exercés</p>
+        <li class="<%= @law_types.administratif ? "red-nav-link" : "collapse" %>">administratif</li>
+        <li class="<%= @law_types.constitutionnel ? "red-nav-link" : "collapse" %>">constitutionnel</li>
+        <li class="<%= @law_types.prive ? "red-nav-link" : "collapse" %>">prive</li>
+        <li class="<%= @law_types.civil ? "red-nav-link" : "collapse" %>">civil</li>
+        <li class="<%= @law_types.social ? "red-nav-link" : "collapse" %>">social</li>
+        <li class="<%= @law_types.penal ? "red-nav-link" : "collapse" %>">penal</li>
+        <li class="<%= @law_types.commercial ? "red-nav-link" : "collapse" %>">commercial</li>
+        <li class="<%= @law_types.judiciaire ? "red-nav-link" : "collapse" %>">judiciaire</li>
+      </ul>
+    </div>
+    <div class="col-md-4 col-sm-6" id="change-zone">
+      <%= link_to "Prendre un rendez-vous", firm_appointments_path(params[:id]), id: "rdv-btn", class:"btn btn-sm6 btn-danger", remote: true %>
+      <div class="appointment-list">
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div class="row my-row container">
+      <div class="col-lg-2 col-sm-12">
+        <div class="add-lawyer btn btn btn-sm6 btn-danger" style="margin-bottom : 10px;" >+ Ajouter un avocat</div>
+        <div class="input-group collapse" id="new-lawyer" >
+          <%= form_with url: firm_lawyers_path(params[:id]), method: :post do |form| %>
+            <%= form.text_field :first_name, placeholder: "First name", class: "form-control" %><br>
+            <%= form.text_field :last_name, placeholder: "Last name", class: "form-control" %><br>
+            <%= form.telephone_field :phone_number, placeholder: "Phone number", class: "form-control" %><br>
+            <%= form.email_field :email, placeholder: "Email", class: "form-control" %><br>
+            <%= form.password_field :password, placeholder: "Mot de passe", class: "form-control" %><br>
+            <%= form.submit "Enregistrer", class:"btn btn-sm6 btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-2 col-sm-12" id="lawyer-list">
+        <h3><b>Avocats</b></h3>
+        <% @lawyers.each do |lawyer| %>
+          <% if lawyer.is_lawyer && lawyer.firm_id == params[:id].to_i %>
+            <p class="text-dark"><%= lawyer.first_name %> <%= lawyer.last_name %></p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-lg-8 col-sm-12">
+        <div class="my-rating">
+          <h1><b><%= Firm.find(params[:id].to_i).name %>.</b></h1>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</body>
+<script>
+  if (document.getElementsByClassName("add-lawyer")[0]) {
+    document.getElementsByClassName("add-lawyer")[0].addEventListener("click", function(){
+      document.getElementById("new-lawyer").classList.toggle("collapse")
+    })
+  }
+</script>

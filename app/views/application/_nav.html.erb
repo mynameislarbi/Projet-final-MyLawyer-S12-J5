@@ -1,0 +1,48 @@
+<nav class="navbar navbar-light bg fixed-top">
+    <%= image_tag "red_logo.png", class: "CLASSEIMAGE" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MyLawyer</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link text-dark active" aria-current="page" href="/">Page principale</a>
+                </li>
+                <% if user_signed_in? %>
+                    <% if current_user.is_lawyer %>
+                    <li class="nav-item" >
+                        <%= link_to "Cabinet", firm_path(current_user.firm_id), class: "nav-link text-dark active"%>
+                    </li>
+                    <% else %>
+                    <li class="nav-item" >
+                        <%= link_to "Prendre rendez-vous", new_menu_path, class: "nav-link text-dark active"%>
+                    </li>
+                    <% end %>
+                    <li class="nav-item">
+                        <%= link_to "Profil", profil_path(current_user.id), class: "nav-link text-dark active" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link text-dark active" %>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-dark active" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link text-dark active" %>
+                    </li>
+                <% end %>
+            </ul>
+            <form class="d-flex" action="/firms" method="get" >
+                <input class="form-control me-2" type="text" name="zip_code" id="zip_code" placeholder="Département " >
+                <button class= "btn btn-sm6 btn-danger" type="submit">Rechercher</button>
+            </form><br>
+            <p>se connecter ou s'inscrire pour prendre un rendez-vous</p>
+        </div>
+    </div>
+</nav> 

@@ -1,0 +1,53 @@
+.body-signup {
+  height : 100vh;
+  background-color : #FFFFFF;
+}
+
+.form-div {
+  text-align : center;
+  color : #CA0707;
+  padding : 0 50px;
+}
+.form-div h2 {
+  margin-bottom : 50px;
+}
+
+.my-lawyer-input {
+  width : 100%;
+  border : none;
+  padding : 10px;
+  border-radius : 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.274);
+  background-color : rgba(245, 245, 245, 0.363);
+  color : black;
+  color : grey;
+  outline-color: white;
+}
+
+.my-lawyer-input:focus {
+  outline : none;
+  transition: 0.4s ease-in-out;
+  transform: scale(1.02);
+}
+
+.form-div select{
+  width : 100%;
+  border : none;
+  padding : 10px;
+  border-radius : 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.274);
+  background-color : rgba(245, 245, 245, 0.363);
+  color : grey;
+  outline-color: white;
+}
+
+.form-div select:focus {
+  outline : none;
+  transition: 0.4s ease-in-out;
+  transform: scale(1.02);
+}
+
+.btn-outline-light {
+  border-color: black;
+  color : black;
+}

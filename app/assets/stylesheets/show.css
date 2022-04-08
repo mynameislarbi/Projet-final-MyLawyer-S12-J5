@@ -1,0 +1,23 @@
+.image-text{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.body-show{
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-image: url("https://media.istockphoto.com/photos/lady-justice-at-sunrise-picture-id1318486133?b=1&k=20&m=1318486133&s=170667a&w=0&h=BMD3lNfTjEC9k2CtZsaoHsikUrv979dJ3RtpAI2fEG8=");
+
+}
+
+.lawyer-profile {
+  margin-top : 150px;
+  width : 100vw;
+  color : white;
+}

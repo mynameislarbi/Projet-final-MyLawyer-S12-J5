@@ -1,0 +1,17 @@
+.footer{
+    background:#b80606fb;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:65px;
+    width:100%;
+}
+
+.body{
+  background-image: url("http://apps.hyblab.fr/ddj2019/region-pdl-audio/img/marteau.gif");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  font-size: 40px;
+  margin: 80px;
+}

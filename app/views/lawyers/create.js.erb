@@ -1,0 +1,2 @@
+document.getElementById("new-lawyer").classList.toggle("collapse")
+document.getElementById("lawyer-list").insertAdjacentHTML("beforeend", "<p><%= @lawyer.first_name %> <%= @lawyer.last_name %></p>")

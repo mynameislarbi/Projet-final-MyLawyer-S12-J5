@@ -1,0 +1,2 @@
+if(document.getElementsByClassName("current-list")[0]){ document.getElementsByClassName("current-list")[0].remove() }
+document.getElementsByClassName("index")[0].insertAdjacentHTML("beforeend", "<%= j render 'firm_list', zip_id: @zip_id %>")

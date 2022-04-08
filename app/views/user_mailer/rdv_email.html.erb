@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <p>
+            Rendez-vous confirmé ! Date de rendez-vous le <%= @apt.start_date.day %> <%= Date::MONTHNAMES[@apt.start_date.month] %> à <%= @apt.start_date.hour %>h
+        </p>
+        <p>
+            Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+        </p>
+        <p> À très vite sur MyLawyer
+    </body>
+</html>
