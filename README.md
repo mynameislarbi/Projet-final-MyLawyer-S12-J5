@@ -47,4 +47,4 @@ Le site en local est ici 👉 [MyLawyer](http://localhost:3000/)
 [Loic Paolucci](https://github.com/loicpaolucci)<br>
 [Adrien Benaceur](https://github.com/NoahAncolie)<br>
 [Larbi Ait Hamadouche](https://github.com/mynameislarbi)<br>
-[Sami Khannouch](https://github.com/SamiKannoun)# Projet-final-MyLawyer-S12-J5
+[Sami Khannouch](https://github.com/SamiKannoun)
